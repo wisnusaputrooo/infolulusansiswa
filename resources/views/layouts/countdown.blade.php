@@ -35,22 +35,23 @@
 
     <script type="text/javascript" src="{{asset('assets/js/jquery/3.2.1/jquery.min.js')}}"></script>
     <script src="{{asset('js/jquery.countdown.min.js')}}"></script>
-    {{-- <script src="{{asset('js/js.countdown.js')}}"></script> --}}
     <script src="{{asset('js/particles.min.js')}}"></script>
     <script src="{{asset('js/comingsoon.js')}}"></script>
     
     <script>
     var $clock = $('#clock');
-    $('#clock').countdown('2021-06-03 16:00:00', function(event) {
+    $('#clock').countdown('2021-05-29 17:37:00', function(event) {
         var $this = $(this).html(event.strftime(''
             + '<span id="days">%D<div>Hari</div></span>'
             + '<span id="hours">%H<div>Jam</div></span>'
             + '<span id="minutes">%M<div>Menit</div></span>'
             + '<span id="seconds">%S<div>Detik</div></span>'));
-    }).on('finish.countdown', function({
-        
+            if(event.offset.days === 0 && event.offset.hours === 0 && event.offset.minutes === 0 && event.offset.seconds === 0){
+                window.location.replace("http://stackoverflow.com");
+            }
+
+    }).on('finish.countdown', function(){
+        window.location.replace("http://stackoverflow.com");
     });
-    // var target_date=new cdtime("clock", "June 03, 2021 16:00:00");
-    // target_date.displaycountdown("days", displayCountDown);
     </script>
 </html>
