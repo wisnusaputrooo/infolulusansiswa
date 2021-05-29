@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +17,14 @@ use Illuminate\Support\Facades\App;
 //     return view('welcome');
 // });
 
-Route::group(['prefix' => '/'], function(){
-    Route::get('/', function(){
-        return view('welcome');
-    });
+// Route::group(['prefix' => '/'], function(){
+//     Route::get('/', function(){
+//         return view('welcome');
+//     });
+// });
+
+Route::get('countdown', function(){
+    return view('layouts.countdown');
 });
+Route::get('/', 'InfolulusController@index');
+Route::get('/', 'InfolulusController@index');
