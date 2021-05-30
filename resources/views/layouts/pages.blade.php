@@ -1,7 +1,17 @@
 @extends('layouts.main')
+@push('css')
+    <!-- Custom scroll bar css-->
+	<link href="{{asset('assets/plugins/customscroll/jquery.mCustomScrollbar.css')}}" rel="stylesheet" />
+
+	<!-- Sidemenu Css -->
+	<link href="{{asset('assets/plugins/toggle-sidebar/css/sidemenu.css')}}" rel="stylesheet">
+
+@endpush
+
+@section('TitlePage', 'Sistem Informasi Kelulusan')
 
 @section('pages')
-<div id="global-loader" ></div>
+<div id="global-loader"></div>
 <div class="page">
     <div class="page-main">
         <!-- Sidebar menu-->
@@ -498,6 +508,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
+    @include('layouts.message-alert')
                                 <div class="card-box card shadow">
                                     <div class="card-body border-bottom">
                                         <div class="clearfix">
@@ -611,21 +622,9 @@
                             </div>
                         </div>
                         <!-- end row -->
-
-                        <!-- Footer -->
-                        <footer class="footer">
-                            <div class="row align-items-center justify-content-xl-between">
-                                <div class="col-xl-6">
-                                    <div class="copyright text-center text-xl-left text-muted">
-                                        <p class="text-sm font-weight-500">Copyright 2018 © All Rights Reserved.Dashboard Template</p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-6">
-                                    <p class="float-right text-sm font-weight-500"><a href="www.templatespoint.net">Templates Point</a></p>
-                                </div>
-                            </div>
-                        </footer>
-                        <!-- Footer -->
+                    
+                    @include('layouts.footer')
+                    
                     </div>
                 </div>
             </div>
@@ -636,3 +635,23 @@
 <!-- Back to top -->
 <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 @endsection
+
+@push('javascripts')
+    <!-- Optional JS -->
+	<script src="{{asset('assets/plugins/chart.js/dist/Chart.min.js')}}"></script>
+	<script src="{{asset('assets/plugins/chart.js/dist/Chart.extension.js')}}"></script>
+
+	<!-- Data tables -->
+	<script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
+	<script src="{{('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
+
+	<!-- Fullside-menu Js-->
+	<script src="{{asset('assets/plugins/toggle-sidebar/js/sidemenu.js')}}"></script>
+
+	<!-- Custom scroll bar Js-->
+	<script src="{{asset('assets/plugins/customscroll/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+
+	<!-- Ansta JS -->
+	<script src="{{asset('assets/js/custom.js')}}"></script>
+   
+@endpush

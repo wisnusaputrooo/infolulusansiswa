@@ -11,15 +11,19 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $primaryKey = 'id';
+    public $timestamps  = true;
+    public $incrementing    = false;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'nama', 'nomor_peserta', 'tempat_lahir', 'tanggal_lahir', 'jenis_kelamin',
+        'program_studi', 'nis', 'nisn', 'kelas', 'is_pass', 'tahun_lulus', 'jumlah_akses',
+        'nomor_telepon', 'acc_facebook', 'acc_instagram', 'acc_twitter'
     ];
 
     /**
@@ -28,7 +32,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password', 'tanggal_lahir',
         'remember_token',
     ];
 
@@ -38,6 +42,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'is_pass' => 'boolean',
     ];
+
+    // public function getAuthPassword()
+    // {
+    //     return $this->tanggal_lahir;
+    // }
 }

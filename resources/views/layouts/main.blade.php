@@ -31,11 +31,11 @@
 	<!-- Ansta CSS -->
 	<link href="{{asset('assets/css/dashboard.css')}}" rel="stylesheet" type="text/css">
 
-	<!-- Single-page CSS -->
-	<link href="{{asset('assets/plugins/single-page/css/main.css')}}" rel="stylesheet" type="text/css">
+	@stack('css')
+
 </head>
 
-<body class="app sidebar-mini rtl bg-gradient-primary">
+<body class="app sidebar-mini rtl bg-gradient-default">
     @yield('login')
     @yield('pages')
 
@@ -44,6 +44,8 @@
 	<script src="{{asset('assets/plugins/jquery/dist/jquery.min.js')}}"></script>
 	<script src="{{asset('assets/js/popper.js')}}"></script>
 	<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
+	@stack('javascripts')
 
 </body>
 

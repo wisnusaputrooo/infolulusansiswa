@@ -38,20 +38,28 @@
     <script src="{{asset('js/particles.min.js')}}"></script>
     <script src="{{asset('js/comingsoon.js')}}"></script>
     
+
+    <?php
+    $value = config('comingsoon');
+    $value = $value['snw_year']."-".$value['snw_month']."-".$value['snw_day']." ".$value['snw_hours'].":".$value['snw_minutes'].":".$value['snw_seconds'];
+    ?>
+
     <script>
     var $clock = $('#clock');
-    $('#clock').countdown('2021-05-29 17:37:00', function(event) {
+    var finalDates = {!! json_encode($value) !!};
+    // $('#clock').countdown('2021-05-29 17:37:00', function(event) {
+    $('#clock').countdown(finalDates, function(event) {
         var $this = $(this).html(event.strftime(''
             + '<span id="days">%D<div>Hari</div></span>'
             + '<span id="hours">%H<div>Jam</div></span>'
             + '<span id="minutes">%M<div>Menit</div></span>'
             + '<span id="seconds">%S<div>Detik</div></span>'));
             if(event.offset.days === 0 && event.offset.hours === 0 && event.offset.minutes === 0 && event.offset.seconds === 0){
-                window.location.replace("http://stackoverflow.com");
+                window.location.replace('login');
             }
 
     }).on('finish.countdown', function(){
-        window.location.replace("http://stackoverflow.com");
+        window.location.replace('login');
     });
     </script>
 </html>
