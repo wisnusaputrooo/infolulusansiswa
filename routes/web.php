@@ -48,12 +48,15 @@ Route::get('/', function(){
 });
 
 
-Route::get('login', 'InfolulusController@index');
+Route::get('login', 'InfolulusController@index')->name('login');
 Route::post('authentication', 'AuthController@login');
 
 Route::group(['middleware' => 'auth'], function () {
- 
+    
     Route::get('home', 'InfolulusController@home');
+    Route::get('update-data', 'InfolulusController@updateData');
+    Route::get('data-sosmed', 'InfolulusController@dataSosmed');
+    Route::get('document', 'InfolulusController@document');
     Route::get('logout', 'AuthController@logout');
  
 });

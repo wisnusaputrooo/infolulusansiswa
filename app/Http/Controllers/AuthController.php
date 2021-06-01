@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use App\Models\User;
+use Illuminate\Support\Carbon;
 use App\Http\Requests\AuthenticationRequest;
 
 class AuthController extends Controller
@@ -24,9 +25,12 @@ class AuthController extends Controller
 
         Auth::attempt($data);
         // dd(Auth::check());
-
         if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
             //Login Success
+            $user = User::find(Auth::id());
+            $user->jumlah_akses = $user->jumlah_akses + 1;
+            $user->updated_at = Carbon::now();
+            $user->save(); 
             return redirect('home')->with('success', 'Berhasil Login');
   
         } else { // false

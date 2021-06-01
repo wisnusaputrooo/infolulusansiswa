@@ -30,10 +30,10 @@ class CreateUsersTable extends Migration
             $table->boolean('is_pass')->default(true);
             $table->string('tahun_lulus', 4)->nullable();
             $table->integer('jumlah_akses')->nullable();
-            $table->string('nomor_telepon', 15)->nullable();
-            $table->string('acc_facebook')->nullable();
-            $table->string('acc_instagram')->nullable();
-            $table->string('acc_twitter')->nullable();
+            $table->string('nomor_telepon', 15)->unique()->nullable();
+            $table->string('acc_facebook')->unique()->nullable();
+            $table->string('acc_instagram')->unique()->nullable();
+            $table->string('acc_twitter')->unique()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

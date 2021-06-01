@@ -31,11 +31,14 @@
 	<!-- Ansta CSS -->
 	<link href="{{asset('assets/css/dashboard.css')}}" rel="stylesheet" type="text/css">
 
+	<!-- Custom CSS -->
+	<link href="{{asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css">
+
 	@stack('css')
 
 </head>
 
-<body class="app sidebar-mini rtl bg-gradient-default">
+<body class="app sidebar-mini rtl bg-gradient-primary">
     @yield('login')
     @yield('pages')
 
@@ -46,6 +49,7 @@
 	<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
 
 	@stack('javascripts')
+	@stack('javascriptsContent')
 
 </body>
 

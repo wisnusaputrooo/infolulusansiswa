@@ -27,6 +27,31 @@
   {{-- @endfor --}}
 @endif
 
+@if ($messages=Session::get('error-query'))
+  @foreach ($messages as $message)
+    <div class="pesan alert alert-warning alert-dismissible fade show d-print-none" role="alert">
+      <span class="alert-inner--icon"><i class="fe fe-info"></i></span>
+      <span class="alert-inner--text">{{$message}}</span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>  
+  @endforeach
+@endif
+
+
+@if ($errors->any())
+  @foreach ($errors->all() as $error)
+    <div class="pesan alert alert-danger alert-dismissible fade show d-print-none" role="alert">
+      <span class="alert-inner--icon"><i class="fe fe-slash"></i></span>
+      <span class="alert-inner--text">{{$error}}</span>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>  
+  @endforeach
+@endif
+
 @if ($message=Session::get('error'))
   {{-- @for ($i=0; $i < count($message); $i++) --}}
   <div class="pesan alert alert-danger alert-dismissible fade show d-print-none" role="alert">
