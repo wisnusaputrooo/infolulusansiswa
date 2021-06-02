@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Hash;
 Route::get('/', function(){
 
     $value = config('comingsoon');
-    if($value['snw_test_mode']){
+    // if($value['snw_test_mode']){
         $countdownDates = Carbon::parse($value['snw_year']."-".$value['snw_month']."-".$value['snw_day']." ".$value['snw_hours'].":".$value['snw_minutes'].":".$value['snw_seconds']);
         $toDay = Carbon::now()->format('y-m-d H:i:s');
         $toDay = Carbon::parse($toDay);
@@ -36,11 +36,11 @@ Route::get('/', function(){
         {
             return redirect('login');
         }    
-    }
-    else
-    {
-        return redirect('login');
-    }
+    // }
+    // else
+    // {
+    //     return redirect('login');
+    // }
 
     // Route::get('/', function(){
     //     return view('welcome');

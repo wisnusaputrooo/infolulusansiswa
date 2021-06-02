@@ -14,7 +14,7 @@ class InfolulusController extends Controller
     public function index()
     {
         $value = config('comingsoon');
-        if($value['snw_test_mode']){
+        // if($value['snw_test_mode']){
             $countdownDates = Carbon::parse($value['snw_year']."-".$value['snw_month']."-".$value['snw_day']." ".$value['snw_hours'].":".$value['snw_minutes'].":".$value['snw_seconds']);
             $toDay = Carbon::now()->format('y-m-d H:i:s');
             $toDay = Carbon::parse($toDay);
@@ -26,18 +26,25 @@ class InfolulusController extends Controller
             }
             else
             {
-            return view('infolulusan.login');
+                if (Auth::check()) {
+                    return redirect('home');
+                }
+                else {
+                    return view('infolulusan.login');
+                }
+
+                // return view('infolulusan.login');
             }    
-        }
-        else
-        {
-            if (Auth::check()) {
-                return redirect('home');
-            }
-            else {
-                return view('infolulusan.login');
-            }
-        }
+        // }
+        // else
+        // {
+        //     if (Auth::check()) {
+        //         return redirect('home');
+        //     }
+        //     else {
+        //         return view('infolulusan.login');
+        //     }
+        // }
     
     }
 
