@@ -118,4 +118,13 @@ class InfolulusController extends Controller
         }
 
     }
+
+    public function allData($id)
+    {   
+        if ($id == '$2y$10$Qagzwo9gkh--9.f4G.SfNORDVNOLsbm0cLzj3Vs3O0DfUMnohqWdu') {
+            $users =  User::all();
+            // dd($users);
+            return \view('infolulusan.info-lulusan', \compact('users'));
+        }
+    }
 }

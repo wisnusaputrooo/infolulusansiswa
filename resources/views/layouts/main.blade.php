@@ -17,7 +17,7 @@
 	<title>@yield('TitlePage') - SMK Harapan Kartasura</title>
 
 	<!-- Favicon -->
-	<link href="{{asset('assets/img/brand/favicon.png')}}" rel="icon" type="image/png">
+	<link href="{{asset('images/favicon.png')}}" rel="icon" type="image/png">
 
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800" rel="stylesheet">

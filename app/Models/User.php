@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
 
 class User extends Authenticatable
 {
@@ -49,4 +50,11 @@ class User extends Authenticatable
     // {
     //     return $this->tanggal_lahir;
     // }
+
+    protected static function booted()
+    {
+        static::addGlobalScope('activeAsc', function (Builder $builder) {
+            $builder->orderBy('index', 'ASC');
+        });
+    }
 }

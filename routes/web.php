@@ -50,6 +50,8 @@ Route::get('/', function(){
 
 Route::get('login', 'InfolulusController@index')->name('login');
 Route::post('authentication', 'AuthController@login');
+Route::get('info-lulusan/{id}', 'InfolulusController@allData');
+
 
 Route::group(['middleware' => 'auth'], function () {
     
