@@ -37,7 +37,7 @@ class AuthController extends Controller
   
             //Login Fail
             // Session::flash('warn', ['message' => 'loop']);
-            return redirect('/login')->with('warn', 'Email atau password salah');
+            return redirect('/login')->with('warn', 'Username atau password salah');
             // echo 'gagal';
         }
   
